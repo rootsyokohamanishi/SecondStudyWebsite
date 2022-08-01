@@ -42,9 +42,12 @@ li {
   padding-top: 120px;
   padding-bottom: 160px;
 }
+
 h1 .site-title {
   font-size: 1rem;
-  color: #333
+  color: #333;
+  width: 400px;
+  hight: 50px;
 }
 
 .page-title {
