@@ -1,9 +1,4 @@
 @charset "UTF-8";
-
-html {
-  font-size: 100%;
-  font: Noto Sans Light;
-}
 /*
 フッターを画面下に配置するために、
 「position: relative;」を設定
@@ -11,6 +6,7 @@ html {
 */
 body {
   color: #333;
+  font-family: 'Avenir','Mv Boli','Helvetica Neue','Helvetica','Arial','Hiragino Sans','ヒラギノ角ゴシック','Yu Gothic','メイリオ','ＭＳ Ｐゴシック','MS PGothic',sans-serif;
   font-size: 0.875rem;
   min-height: 100vh;
   position: relative;
@@ -45,14 +41,15 @@ li {
 
 h1 .site-title {
   font-size: 1rem;
+  font-family: 'Mv Boli';
   color: #333;
   width: 400px;
-  hight: 50px;
+  height: 50px;
 }
 
 .page-title {
-  font-size: 0.875rem;
-  font-weight: normal;
+  font-size: 1.6rem;
+  font-weight: bold;
   margin-bottom: 30px;
 }
 
@@ -196,6 +193,13 @@ TOP、PRODUCTS
   width: 23%;
   margin-bottom: 40px;
 }
+
+.conternt-name {
+  font-size: 0.875rem;
+  font-family: Arial;
+  text-align: center;
+  margin-top: 10px;
+}
 /*
 vertical-align: top;
 画像の下にできる隙間を消す
@@ -252,6 +256,30 @@ text-align: justify;
 }
 #item .item-img {
   width: 50%;
+}
+
+/*
+Adobeページ
+*/
+.ill-heading {
+  color: #ff6600;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  font-style: italic;
+}
+
+.pho-heading {
+  color: #31a8ff;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  font-style: italic;
+}
+
+.pre-heading {
+  color: #9999ff;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  font-style: italic;
 }
 
 /*-------------------------------------------
