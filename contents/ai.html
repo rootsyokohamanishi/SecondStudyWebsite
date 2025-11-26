@@ -1,103 +1,178 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
-  <head>
-    <meta charset="utf-8">
-    <title>Adobe教材 | 就労移行ITスクール横浜駅西口第2オフィスへようこそ</title>
-    <meta name="description" content="テキストテキストテキストテキストテキストテキストテキスト">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="https://raw.githubusercontent.com/rootsyokohamanishi/SecondStudyWebsite/main/favicon.ico">
-    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
-    <link rel="stylesheet" href="../style.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://rootsyokohamanishi.github.io/SecondStudyWebsite/main.js"></script>
-  </head>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AIツール比較</title>
+  <style>
+    :root{
+      --bg: #ffffff;
+      --card-bg: #f7f7f7;
+      --radius: 14px;
+      --shadow: 0 4px 14px rgba(0,0,0,0.08);
+      --gap: 28px;
+      --text: #222;
+      --muted: #666;
+      font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+    }
 
-  <body>
-    <header id="header" class="wrapper">
-      <h1 class="site-title">
-        <a href="../index.html">IT School Yokohama Nishi ２nd</a>
-      </h1>
+    body{
+      margin:0;
+      background: var(--bg);
+      padding: 48px 24px;
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+    }
 
-      <nav id="navi">
-        <ul class="nav-menu">
-          <li><a href="../home.html">CONTENTS</a></li>
-          <li><a href="../about.html">ABOUT</a></li>
-          <li><a href="../company.html">INFORMATION</a></li>
-        </ul>
-      </nav>
+    .wrap{
+      max-width: 1200px;
+      margin: 0 auto;
+    }
 
-      <div class="toggle_btn">
-        <span></span>
-        <span></span>
-      </div>
+    h1{
+      margin: 0 0 14px;
+      font-size: 26px;
+    }
 
-      <div id="mask"></div>
-    </header>
+    p.lead{
+      margin: 0 0 40px;
+      color: var(--muted);
+      font-size: 15px;
+    }
 
-    <main>
-      <div class="content wrapper-ai">
-        <h1 class="page-title">AIを使ってみよう！</h1>
-        <div id="item-ai">
-          <div class="ai-img">
-            <img src="https://github.com/rootsyokohamanishi/SecondStudyWebsite/blob/main/img/AI_img.jpeg?raw=true" alt="">
-          </div>
-          <div class="item-text-ai">
-            <table border="1" cellspacing="0" cellpadding="8" id="letters">
-                <thead>
-                    <tr>
-                        <th>ツール名</th>
-                        <th>主な特徴</th>
-                        <th>リサーチ時の強み</th>
-                        <th>特徴</th>
-                        <th>無料</th>
-                    </tr>
-                </thead>
-            <tbody>
-                    <tr>
-                        <td>ChatGPT</td>
-                        <td>オールラウンダーなAIチャットボットで、長文・要約・文章生成に強い</td>
-                        <td>幅広い分野の情報収集・要約が得意</td>
-                        <td>柔軟性が非常に高い</td>
-                        <td>あり</td>
-                    </tr>
-                    <tr>
-                        <td>Claude</td>
-                        <td>Anthropicという企業が作っており、長文処理・要約・論理的解説に優れています</td>
-                        <td>複雑な論述や長文の要約・分析に最適</td>
-                        <td>英語力も高い</td>
-                        <td>あり</td>
-                    </tr>
-                    <tr>
-                        <td>Gemini</td>
-                        <td>Google検索と連携し、テキスト・画像・音声などを複数組み合わせた回答を返すことも可能</td>
-                        <td>最新ニュースや専門情報の横断検索に強い</td>
-                        <td>検索エンジンとの親和性が高い</td>
-                        <td>あり</td>
-                    </tr>
-                    <tr>
-                        <td>Gemini <br>(nano Banana)</td>
-                        <td>かなり高性能な画像生成AIとして注目されており、直感的な指示への対応や処理速度、画像の一貫性の維持が特徴</td>
-                        <td>複雑な画像生成や編集に最適</td>
-                        <td>2025/10時点で画像生成AIではトップクラス</td>
-                        <td>あり</td>
-                    </tr>
-            </tbody>
-        </table>
-          </div>
+    /* --- Grid --- */
+    .grid{
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--gap);
+    }
+
+    @media(max-width: 780px){
+      .grid{grid-template-columns: 1fr;}
+    }
+
+    /* --- Card --- */
+    .card{
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      display:flex;
+      overflow:hidden;
+      min-height: 300px;
+    }
+
+    .media{
+      flex: 0 0 40%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:#fafafa;
+      position:relative;
+      padding: 20px;
+    }
+
+    .media img{
+      width:100%;
+      max-width: 260px;
+      height:auto;
+      object-fit:contain;
+    }
+
+    /* Grid‑out effect: icon spills slightly */
+    .media img.gridout{
+      transform: translateX(-6%);
+    }
+
+    .content{
+      flex:1;
+      padding: 26px 30px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      gap: 10px;
+    }
+
+    .title{
+      font-size: 20px;
+      margin:0;
+      font-weight: 600;
+    }
+
+    .meta{
+      color:var(--muted);
+      font-size: 14px;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>AIツール比較</h1>
+    <p class="lead">さまざまなAIツールを比較して、使いこなせるように</p>
+
+    <section class="grid">
+      <!-- 1 ChatGPT -->
+      <article class="card">
+        <div class="media">
+          <!-- あなたが作成する600pxアイコンをここに差し込み -->
+           <a href="https://chatgpt.com/">
+             <img src="https://github.com/rootsyokohamanishi/second/blob/main/img/chatGPT_icon.png?raw=true" alt="ChatGPT アイコン" class="gridout">
+           </a>
         </div>
-        <a class="link-text" href="../home.html">Back To Contents</a>
-      </div>
-    </main>
+        <div class="content">
+          <h2 class="title">ChatGPT</h2>
+          <p class="meta">【主な特徴】OpenAIが開発。回答の自然さや、生成能力の幅の広さが特徴。</p>
+          <p class="meta">【得意分野】文章生成、要約、企画提案、会話体験を通した回答が得意。</p>
+          <p class="meta">有料 または 無料プランあり</p>
+        </div>
+      </article>
 
-    <footer id="footer" class="wrapper">
-      <ul class="menu">
-        <li>
-         <a href="https://www.instagram.com/roots_second/" target="_blank">
-          <img src="https://github.com/rootsyokohamanishi/SecondStudyWebsite/blob/main/img/insta_icon.png?raw=true" alt="">
-        　　</a>
-        </li>
-      </ul>
-      <p class="copyright">&copy; 就労移行ITスクール横浜駅西口第2オフィス</p>
-    </footer>
-  </body>
+      <!-- 2 Google Gemini -->
+      <article class="card">
+        <div class="media">
+          <a href="https://gemini.google.com/app?utm_source=app_launcher&utm_medium=owned&utm_campaign=base_all">
+            <img src="https://github.com/rootsyokohamanishi/second/blob/main/img/Gemini_bn_icon.png?raw=true" alt="Google Gemini アイコン" class="gridout">
+          </a>
+        </div>
+        <div class="content">
+          <h2 class="title">Google Gemini</h2>
+          <p class="meta">【主な特徴】Googleが提供する最新AIモデル。検索連携やマルチモーダルが強い。</p>
+          <p class="meta">【得意分野】画像理解、検索補強、Googleのサービスを統合して活用できる。</p>
+          <p class="meta">有料 または 無料プランあり</p>
+        </div>
+      </article>
+
+      <!-- 3 Claude -->
+      <article class="card">
+        <div class="media">
+          <a href="https://claude.ai/onboarding">
+            <img src="https://github.com/rootsyokohamanishi/second/blob/main/img/Claude_icon.png?raw=true" alt="Claude アイコン" class="gridout">
+          </a>
+        </div>
+        <div class="content">
+          <h2 class="title">Claude</h2>
+          <p class="meta">【主な特徴】Anthropic開発。長文処理・安全性・説明能力に強みあり。</p>
+          <p class="meta">【得意分野】大規模文書分析、丁寧な説明、整合性の高い出力を誇る。</p>
+          <p class="meta">有料 または 無料プランあり</p>
+        </div>
+      </article>
+
+      <!-- 4 Gemini (Nano / Banana) -->
+      <article class="card">
+        <div class="media">
+          <a href="https://gemini.google.com/app?utm_source=app_launcher&utm_medium=owned&utm_campaign=base_all">
+            <img src="https://github.com/rootsyokohamanishi/second/blob/main/img/Gemini_bn_icon.png?raw=true" alt="Gemini Nano / Banana アイコン" class="gridout">
+          </a>
+        </div>
+        <div class="content">
+          <h2 class="title">Gemini（Nano Banana）</h2>
+          <p class="meta">【主な特徴】Googleが提供している画像生成AIエンジン。</p>
+          <p class="meta">【得意分野】物理法則を基にした画像生成、細部へのこだわりや柔軟性の高い画像生成。</p>
+          <p class="meta">有料 または 無料プランあり</p>
+        </div>
+      </article>
+
+    </section>
+  </div>
+</body>
 </html>
